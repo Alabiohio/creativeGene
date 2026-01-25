@@ -25,106 +25,179 @@ export default function Expectations() {
 
                 <div className="grid lg:grid-cols-3 gap-10">
                     {/* Panel Sessions */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-primary/50 transition-all duration-500 group"
-                    >
-                        <div className="flex flex-col items-start gap-6 mb-8">
-                            <div className="p-5 bg-purple-500/10 rounded-3xl group-hover:bg-purple-500/20 transition-colors">
-                                <Mic className="w-10 h-10 text-purple-400" />
-                            </div>
-                            <h3 className="text-4xl font-black tracking-tight text-white uppercase">Panel <br />Sessions</h3>
-                        </div>
-                        <p className="text-xl text-gray-400 mb-10 leading-relaxed font-light">
-                            Listen to professionals from different tech areas share their journeys. They will talk about how they started, what changed their careers, and how they grew.
-                        </p>
-                        <div className="mt-auto grid grid-cols-2 gap-4">
-                            {[
-                                "Software Development",
-                                "Data & Analytics",
-                                "Product Management",
-                                "UI/UX Design",
-                                "Cybersecurity",
-                                "Cloud Engineering",
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 text-sm text-gray-300 font-medium bg-white/5 py-3 px-4 rounded-2xl border border-white/5 group-hover:bg-white/10 transition-colors">
-                                    <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-                                    {item}
-                                </div>
+                    <div className="relative group h-full">
+                        {/* Digital Assembly Fragments */}
+                        <div className="absolute inset-0 grid grid-cols-5 grid-rows-5 gap-1 pointer-events-none overflow-hidden z-20">
+                            {Array.from({ length: 25 }).map((_, j) => (
+                                <motion.div
+                                    key={j}
+                                    initial={{ opacity: 0, scale: 0, z: 120 }}
+                                    whileInView={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0, 1.2, 0.5],
+                                        z: [120, 0, -60],
+                                        rotateY: [90, 0, -90]
+                                    }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 1.5,
+                                        delay: 0 + (j * 0.03),
+                                        ease: "easeOut"
+                                    }}
+                                    className="bg-purple-500/20 border border-purple-500/40 backdrop-blur-sm"
+                                />
                             ))}
                         </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
+                            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.6, duration: 0.8 }}
+                            className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-primary/50 transition-all duration-500 relative z-10 h-full overflow-hidden"
+                        >
+                            <div className="flex flex-col items-start gap-6 mb-8">
+                                <div className="p-5 bg-purple-500/10 rounded-3xl group-hover:bg-purple-500/20 transition-colors">
+                                    <Mic className="w-10 h-10 text-purple-400" />
+                                </div>
+                                <h3 className="text-4xl font-black tracking-tight text-white uppercase">Panel <br />Sessions</h3>
+                            </div>
+                            <p className="text-xl text-gray-400 mb-10 leading-relaxed font-light">
+                                Listen to professionals from different tech areas share their journeys. They will talk about how they started, what changed their careers, and how they grew.
+                            </p>
+                            <div className="mt-auto grid grid-cols-2 gap-4">
+                                {[
+                                    "Software Development",
+                                    "Data & Analytics",
+                                    "Product Management",
+                                    "UI/UX Design",
+                                    "Cybersecurity",
+                                    "Cloud Engineering",
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-center gap-3 text-sm text-gray-300 font-medium bg-white/5 py-3 px-4 rounded-2xl border border-white/5 group-hover:bg-white/10 transition-colors">
+                                        <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                                        {item}
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* Live Q&A */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="glass-panel p-12 rounded-[50px] flex flex-col border-primary/30 bg-gradient-to-br from-primary/10 via-transparent to-transparent hover:border-primary/60 transition-all duration-500 scale-105 z-20 group shadow-2xl shadow-primary/20"
-                    >
-                        <div className="flex flex-col items-start gap-6 mb-8">
-                            <div className="p-5 bg-accent/10 rounded-3xl group-hover:bg-accent/20 transition-colors">
-                                <MessageCircle className="w-10 h-10 text-accent" />
-                            </div>
-                            <h3 className="text-4xl font-black tracking-tight text-white uppercase">Live Q&A <br />Sessions</h3>
-                        </div>
-                        <p className="text-xl text-gray-300 mb-10 leading-relaxed font-light">
-                            Ask questions about choosing a career, skills that matter, portfolio building, and more. Honest answers. Real guidance.
-                        </p>
-                        <div className="space-y-4 mt-auto">
-                            {[
-                                "Choosing a tech career",
-                                "Skills that really matter",
-                                "Overcoming self-doubt",
-                                "Networking the right way",
-                            ].map((item, i) => (
-                                <div key={i} className="px-6 py-4 bg-primary/20 rounded-3xl border border-primary/30 text-white font-bold flex items-center justify-between group-hover:bg-primary/30 transition-colors">
-                                    {item}
-                                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]" />
-                                </div>
+                    <div className="relative group scale-105 z-20 h-full">
+                        {/* Digital Assembly Fragments */}
+                        <div className="absolute inset-0 grid grid-cols-5 grid-rows-5 gap-1 pointer-events-none overflow-hidden z-20">
+                            {Array.from({ length: 25 }).map((_, j) => (
+                                <motion.div
+                                    key={j}
+                                    initial={{ opacity: 0, scale: 0, z: 120 }}
+                                    whileInView={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0, 1.2, 0.5],
+                                        z: [120, 0, -60],
+                                        rotateY: [90, 0, -90]
+                                    }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 1.5,
+                                        delay: 0.2 + (j * 0.03),
+                                        ease: "easeOut"
+                                    }}
+                                    className="bg-primary/20 border border-primary/40 backdrop-blur-sm"
+                                />
                             ))}
                         </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50, scale: 1.05, filter: "blur(12px)" }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1.05, filter: "blur(0px)" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.8, duration: 0.8 }}
+                            className="glass-panel p-12 rounded-[50px] flex flex-col border-primary/30 bg-gradient-to-br from-primary/10 via-transparent to-transparent hover:border-primary/60 transition-all duration-500 relative z-10 h-full group shadow-2xl shadow-primary/20 overflow-hidden"
+                        >
+                            <div className="flex flex-col items-start gap-6 mb-8">
+                                <div className="p-5 bg-accent/10 rounded-3xl group-hover:bg-accent/20 transition-colors">
+                                    <MessageCircle className="w-10 h-10 text-accent" />
+                                </div>
+                                <h3 className="text-4xl font-black tracking-tight text-white uppercase">Live Q&A <br />Sessions</h3>
+                            </div>
+                            <p className="text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                                Ask questions about choosing a career, skills that matter, portfolio building, and more. Honest answers. Real guidance.
+                            </p>
+                            <div className="space-y-4 mt-auto">
+                                {[
+                                    "Choosing a tech career",
+                                    "Skills that really matter",
+                                    "Overcoming self-doubt",
+                                    "Networking the right way",
+                                ].map((item, i) => (
+                                    <div key={i} className="px-6 py-4 bg-primary/20 rounded-3xl border border-primary/30 text-white font-bold flex items-center justify-between group-hover:bg-primary/30 transition-colors">
+                                        {item}
+                                        <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]" />
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* Networking */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                        className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-blue-500/50 transition-all duration-500 group"
-                    >
-                        <div className="flex flex-col items-start gap-6 mb-8">
-                            <div className="p-5 bg-blue-500/10 rounded-3xl group-hover:bg-blue-500/20 transition-colors">
-                                <Network className="w-10 h-10 text-blue-400" />
+                    <div className="relative group h-full">
+                        {/* Digital Assembly Fragments */}
+                        <div className="absolute inset-0 grid grid-cols-5 grid-rows-5 gap-1 pointer-events-none overflow-hidden z-20">
+                            {Array.from({ length: 25 }).map((_, j) => (
+                                <motion.div
+                                    key={j}
+                                    initial={{ opacity: 0, scale: 0, z: 120 }}
+                                    whileInView={{
+                                        opacity: [0, 1, 0],
+                                        scale: [0, 1.2, 0.5],
+                                        z: [120, 0, -60],
+                                        rotateY: [90, 0, -90]
+                                    }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 1.5,
+                                        delay: 0.4 + (j * 0.03),
+                                        ease: "easeOut"
+                                    }}
+                                    className="bg-blue-500/20 border border-blue-500/40 backdrop-blur-sm"
+                                />
+                            ))}
+                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
+                            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 1, duration: 0.8 }}
+                            className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-blue-500/50 transition-all duration-500 relative z-10 h-full overflow-hidden"
+                        >
+                            <div className="flex flex-col items-start gap-6 mb-8">
+                                <div className="p-5 bg-blue-500/10 rounded-3xl group-hover:bg-blue-500/20 transition-colors">
+                                    <Network className="w-10 h-10 text-blue-400" />
+                                </div>
+                                <h3 className="text-4xl font-black tracking-tight text-white uppercase">Deep <br />Networking</h3>
                             </div>
-                            <h3 className="text-4xl font-black tracking-tight text-white uppercase">Deep <br />Networking</h3>
-                        </div>
-                        <p className="text-xl text-gray-400 mb-10 leading-relaxed font-light">
-                            Meet other students and tech lovers like you. The right connection can change everything.
-                        </p>
-                        <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-8 rounded-[40px] border border-white/5 mt-auto">
-                            <h4 className="font-black text-white mb-6 uppercase tracking-widest text-sm">Target Audience</h4>
-                            <ul className="space-y-4 text-gray-300">
-                                {[
-                                    "Ambitions students",
-                                    "Career switchers",
-                                    "Stuck professionals",
-                                    "Tech explorers"
-                                ].map((item, idx) => (
-                                    <li key={idx} className="flex items-center gap-3">
-                                        <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                                        </div>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </motion.div>
+                            <p className="text-xl text-gray-400 mb-10 leading-relaxed font-light">
+                                Meet other students and tech lovers like you. The right connection can change everything.
+                            </p>
+                            <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-8 rounded-[40px] border border-white/5 mt-auto">
+                                <h4 className="font-black text-white mb-6 uppercase tracking-widest text-sm">Target Audience</h4>
+                                <ul className="space-y-4 text-gray-300">
+                                    {[
+                                        "Ambitions students",
+                                        "Career switchers",
+                                        "Stuck professionals",
+                                        "Tech explorers"
+                                    ].map((item, idx) => (
+                                        <li key={idx} className="flex items-center gap-3">
+                                            <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                                            </div>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
 
                 <div className="mt-32 text-center">

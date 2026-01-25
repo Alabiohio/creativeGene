@@ -48,26 +48,54 @@ export default function Features() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className="glass-panel p-10 rounded-[40px] hover:bg-white/5 hover:border-primary/50 transition-all duration-500 group relative flex flex-col items-center text-center shadow-xl"
-                        >
-                            <div className="mb-8 p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-110 group-hover:from-primary/20 transition-all duration-500 border border-white/5">
-                                <feature.icon className="w-10 h-10 text-secondary drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]" />
+                        <div key={index} className="relative group">
+                            {/* Digital Assembly Fragments */}
+                            <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-1 pointer-events-none overflow-hidden z-20">
+                                {Array.from({ length: 16 }).map((_, j) => (
+                                    <motion.div
+                                        key={j}
+                                        initial={{ opacity: 0, scale: 0, z: 100 }}
+                                        whileInView={{
+                                            opacity: [0, 1, 0],
+                                            scale: [0, 1.2, 0.5],
+                                            z: [100, 0, -50],
+                                            rotateY: [90, 0, -90]
+                                        }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 1.2,
+                                            delay: (index * 0.1) + (j * 0.035),
+                                            ease: "easeOut"
+                                        }}
+                                        className="bg-primary/30 border border-primary/50 backdrop-blur-sm"
+                                    />
+                                ))}
                             </div>
 
-                            <h3 className="text-2xl font-black mb-4 text-white tracking-tight uppercase leading-tight group-hover:text-primary transition-colors">{feature.title}</h3>
-                            <p className="text-gray-400 text-lg leading-relaxed font-light">
-                                {feature.description}
-                            </p>
+                            <motion.div
+                                initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+                                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                viewport={{ once: true }}
+                                transition={{ delay: (index * 0.1) + 0.5, duration: 0.6 }}
+                                className="glass-panel p-10 rounded-[40px] hover:bg-white/5 hover:border-primary/50 transition-all duration-500 relative z-10 flex flex-col items-center text-center shadow-xl h-full overflow-hidden"
+                            >
+                                <div className="mb-8 p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-110 group-hover:from-primary/20 transition-all duration-500 border border-white/5">
+                                    <feature.icon className="w-10 h-10 text-secondary drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]" />
+                                </div>
 
-                            {/* Decorative line */}
-                            <div className="mt-8 w-0 group-hover:w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-all duration-700" />
-                        </motion.div>
+                                <h3 className="text-2xl font-black mb-4 text-white tracking-tight uppercase leading-tight group-hover:text-primary transition-colors">{feature.title}</h3>
+                                <p className="text-gray-400 text-lg leading-relaxed font-light">
+                                    {feature.description}
+                                </p>
+
+                                {/* Decorative line */}
+                                <div className="mt-8 w-0 group-hover:w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-all duration-700" />
+
+                                {/* Tech Accents */}
+                                <div className="absolute top-6 left-6 w-4 h-4 border-t border-l border-primary/10 group-hover:border-primary/40 transition-colors" />
+                                <div className="absolute bottom-6 right-6 w-4 h-4 border-b border-r border-primary/10 group-hover:border-primary/40 transition-colors" />
+                            </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

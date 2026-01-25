@@ -53,21 +53,59 @@ export default function Problem() {
                         </div>
                     </motion.div>
 
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="lg:col-span-12 text-3xl md:text-4xl font-bold text-white mb-8"
+                    >
+                        You may be
+                    </motion.h3>
                     <div className="lg:col-span-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {strugglePoints.map((point, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="glass-panel p-8 rounded-3xl flex flex-col gap-6 hover:border-primary/50 hover:bg-white/5 transition-all duration-500 group"
-                            >
-                                <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
-                                    <point.icon className="w-8 h-8 text-primary" />
+                            <div key={index} className="relative group">
+                                {/* Digital Assembly Fragments */}
+                                <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-1 pointer-events-none overflow-hidden z-20">
+                                    {Array.from({ length: 16 }).map((_, j) => (
+                                        <motion.div
+                                            key={j}
+                                            initial={{ opacity: 0, scale: 0, z: 100 }}
+                                            whileInView={{
+                                                opacity: [0, 1, 0],
+                                                scale: [0, 1.2, 0.5],
+                                                z: [100, 0, -50],
+                                                rotateY: [90, 0, -90]
+                                            }}
+                                            viewport={{ once: true }}
+                                            transition={{
+                                                duration: 1.2,
+                                                delay: (index * 0.15) + (j * 0.03),
+                                                ease: "easeOut"
+                                            }}
+                                            className="bg-primary/30 border border-primary/50 backdrop-blur-sm"
+                                        />
+                                    ))}
                                 </div>
-                                <p className="text-xl text-gray-200 font-medium leading-tight">{point.text}</p>
-                            </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: (index * 0.15) + 0.5, duration: 0.6 }}
+                                    className="glass-panel p-8 rounded-3xl flex flex-col gap-6 hover:border-primary/50 hover:bg-white/5 transition-all duration-500 relative z-10 h-full"
+                                >
+
+                                    <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
+                                        <point.icon className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <p className="text-xl text-gray-200 font-medium leading-tight">{point.text}</p>
+
+                                    {/* Tech Brackets */}
+                                    <div className="absolute top-4 left-4 w-3 h-3 border-t border-l border-primary/20 group-hover:border-primary/50 transition-colors" />
+                                    <div className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-primary/20 group-hover:border-primary/50 transition-colors" />
+                                </motion.div>
+                            </div>
                         ))}
                     </div>
 

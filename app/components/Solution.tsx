@@ -34,34 +34,86 @@ export default function Solution() {
                             "How do you choose the right tech path?",
                             "How to overcome imposter syndrome?"
                         ].map((question, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="glass-panel p-10 rounded-[40px] text-left hover:border-primary/50 transition-all duration-500 group relative overflow-hidden"
-                            >
-                                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
-                                <span className="text-6xl text-primary/10 font-serif absolute top-4 left-6 group-hover:text-primary/20 transition-colors">"</span>
-                                <p className="text-xl md:text-2xl font-bold text-gray-200 relative z-10 mt-6 group-hover:text-white transition-colors leading-tight">{question}</p>
-                            </motion.div>
+                            <div key={i} className="relative group">
+                                {/* Digital Assembly Fragments */}
+                                <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-1 pointer-events-none overflow-hidden z-20">
+                                    {Array.from({ length: 16 }).map((_, j) => (
+                                        <motion.div
+                                            key={j}
+                                            initial={{ opacity: 0, scale: 0, z: 100 }}
+                                            whileInView={{
+                                                opacity: [0, 1, 0],
+                                                scale: [0, 1.2, 0.5],
+                                                z: [100, 0, -50],
+                                                rotateY: [90, 0, -90]
+                                            }}
+                                            viewport={{ once: true }}
+                                            transition={{
+                                                duration: 1.5,
+                                                delay: (i * 0.1) + (j * 0.04),
+                                                ease: "easeOut"
+                                            }}
+                                            className="bg-primary/40 border border-primary/60 backdrop-blur-sm"
+                                        />
+                                    ))}
+                                </div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        delay: (i * 0.1) + 0.6,
+                                        duration: 0.8,
+                                        type: "spring",
+                                        stiffness: 100
+                                    }}
+                                    className="glass-panel p-10 rounded-[40px] text-left hover:border-primary/50 transition-all duration-500 relative z-10 overflow-hidden"
+                                >
+                                    <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+
+                                    {/* Tech Brackets */}
+                                    <div className="absolute top-6 left-6 w-4 h-4 border-t-2 border-l-2 border-primary/20 group-hover:border-primary/50 transition-colors" />
+                                    <div className="absolute bottom-6 right-6 w-4 h-4 border-b-2 border-r-2 border-primary/20 group-hover:border-primary/50 transition-colors" />
+
+                                    <span className="text-6xl text-primary/10 font-serif absolute top-4 left-6 group-hover:text-primary/20 transition-colors">"</span>
+                                    <p className="text-xl md:text-2xl font-bold text-gray-200 relative z-10 mt-6 group-hover:text-white transition-colors leading-tight">
+                                        {question}
+                                    </p>
+
+                                    <div className="mt-8 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <div className="h-[1px] w-8 bg-primary/40" />
+                                        <span className="text-[10px] font-mono text-primary/60 tracking-widest uppercase">Deciphering...</span>
+                                    </div>
+                                </motion.div>
+                            </div>
                         ))}
                     </div>
 
-                    <div className="mt-32 w-full p-1 lg:p-12 glass-panel rounded-[50px] relative overflow-hidden border-white/10 group hover:border-white/20 transition-colors">
+                    <div className="mt-32 w-full p-8 lg:p-16 glass-panel rounded-[50px] relative overflow-hidden border-white/10 group hover:border-white/20 transition-all duration-700">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/5 opacity-50" />
 
+                        {/* Decorative background glow for emphasis */}
+                        <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px] group-hover:bg-primary/30 transition-colors duration-700" />
+
                         <div className="relative z-10 flex flex-col md:flex-row gap-16 items-center">
-                            <div className="md:w-1/2 text-left">
-                                <h3 className="text-4xl md:text-6xl font-black mb-8 text-white tracking-tighter leading-none">
-                                    WELCOME TO <br />
-                                    <span className="text-primary italic">CREATIVE GENE</span>
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                                className="md:w-1/2 text-left"
+                            >
+                                <h3 className="text-5xl md:text-7xl font-black mb-8 text-white tracking-tighter leading-[0.9] relative">
+                                    <span className="relative z-10">WELCOME TO</span> <br />
+                                    <span className="text-primary italic relative z-10">CREATIVE GENE</span>
+                                    {/* Text highlight/underline effect */}
+                                    <div className="absolute -bottom-2 left-0 w-1/3 h-2 bg-primary/30 -z-10 blur-sm" />
                                 </h3>
                                 <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light mb-12">
                                     Creative Gene is not just another tech event. It is an <span className="text-white font-medium underline decoration-primary decoration-2 underline-offset-4">immersive experience</span> designed to help you decode your potential.
                                 </p>
-                            </div>
+                            </motion.div>
 
                             <div className="md:w-1/2 grid grid-cols-1 gap-8">
                                 <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">

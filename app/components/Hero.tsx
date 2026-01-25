@@ -55,7 +55,7 @@ export default function Hero() {
                     {/* Glowing Aura behind text */}
                     <div className="absolute -inset-10 bg-primary/30 blur-[100px] rounded-full opacity-50" />
 
-                    <h1 className="relative text-8xl md:text-[11rem] lg:text-[13rem] font-black tracking-tighter mb-8 leading-[0.85] select-none">
+                    <h1 className="relative text-5xl sm:text-7xl md:text-[11rem] lg:text-[13rem] font-black tracking-tight md:tracking-tighter mb-8 leading-[0.85] select-none">
                         <span className="block text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">CREATIVE</span>
                         <span className="text-gradient drop-shadow-[0_0_50px_rgba(219,39,119,0.7)]">GENE.</span>
                     </h1>
@@ -65,7 +65,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="text-2xl md:text-4xl text-gray-200 max-w-4xl mx-auto mb-12 font-extralight tracking-[0.15em] leading-relaxed uppercase"
+                    className="text-lg sm:text-xl md:text-4xl text-gray-200 max-w-4xl mx-auto mb-12 font-extralight tracking-[0.1em] md:tracking-[0.15em] leading-relaxed uppercase px-4"
                 >
                     Unveiling the <span className="font-bold text-white border-b-2 border-primary pb-1">Creative Force</span> Within You
                 </motion.p>
@@ -78,7 +78,7 @@ export default function Hero() {
                 >
                     <Button
                         size="lg"
-                        className="text-xl px-16 py-10 bg-white text-black hover:bg-primary hover:text-white border-none shadow-[0_20px_50px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_20px_60px_-10px_rgba(219,39,119,0.8)] hover:-translate-y-2 transition-all duration-500 rounded-full font-black tracking-[0.2em] uppercase"
+                        className="text-lg md:text-xl px-10 md:px-16 py-6 md:py-10 bg-white text-black hover:bg-primary hover:text-white border-none shadow-[0_20px_50px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_20px_60px_-10px_rgba(219,39,119,0.8)] hover:-translate-y-2 transition-all duration-500 rounded-full font-black tracking-[0.2em] uppercase"
                         onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Join the Movement

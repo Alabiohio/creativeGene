@@ -25,7 +25,7 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     <Image
-                        src="/cg-icon.png"
+                        src="/cg-Icon.png"
                         alt="Creative Gene Logo"
                         width={220}
                         height={60}

@@ -65,28 +65,6 @@ export default function Problem() {
                     <div className="lg:col-span-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {strugglePoints.map((point, index) => (
                             <div key={index} className="relative group">
-                                {/* Digital Assembly Fragments */}
-                                <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-1 pointer-events-none overflow-hidden z-20">
-                                    {Array.from({ length: 16 }).map((_, j) => (
-                                        <motion.div
-                                            key={j}
-                                            initial={{ opacity: 0, scale: 0, z: 100 }}
-                                            whileInView={{
-                                                opacity: [0, 1, 0],
-                                                scale: [0, 1.2, 0.5],
-                                                z: [100, 0, -50],
-                                                rotateY: [90, 0, -90]
-                                            }}
-                                            viewport={{ once: true }}
-                                            transition={{
-                                                duration: 1.2,
-                                                delay: (index * 0.15) + (j * 0.03),
-                                                ease: "easeOut"
-                                            }}
-                                            className="bg-primary/30 border border-primary/50 backdrop-blur-sm"
-                                        />
-                                    ))}
-                                </div>
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}

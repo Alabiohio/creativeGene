@@ -26,28 +26,6 @@ export default function Expectations() {
                 <div className="grid lg:grid-cols-3 gap-10">
                     {/* Panel Sessions */}
                     <div className="relative group h-full">
-                        {/* Digital Assembly Fragments */}
-                        <div className="absolute inset-0 grid grid-cols-5 grid-rows-5 gap-1 pointer-events-none overflow-hidden z-20">
-                            {Array.from({ length: 25 }).map((_, j) => (
-                                <motion.div
-                                    key={j}
-                                    initial={{ opacity: 0, scale: 0, z: 120 }}
-                                    whileInView={{
-                                        opacity: [0, 1, 0],
-                                        scale: [0, 1.2, 0.5],
-                                        z: [120, 0, -60],
-                                        rotateY: [90, 0, -90]
-                                    }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 1.5,
-                                        delay: 0 + (j * 0.03),
-                                        ease: "easeOut"
-                                    }}
-                                    className="bg-purple-500/20 border border-purple-500/40 backdrop-blur-sm"
-                                />
-                            ))}
-                        </div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
                             whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -84,28 +62,6 @@ export default function Expectations() {
 
                     {/* Live Q&A */}
                     <div className="relative group scale-105 z-20 h-full">
-                        {/* Digital Assembly Fragments */}
-                        <div className="absolute inset-0 grid grid-cols-5 grid-rows-5 gap-1 pointer-events-none overflow-hidden z-20">
-                            {Array.from({ length: 25 }).map((_, j) => (
-                                <motion.div
-                                    key={j}
-                                    initial={{ opacity: 0, scale: 0, z: 120 }}
-                                    whileInView={{
-                                        opacity: [0, 1, 0],
-                                        scale: [0, 1.2, 0.5],
-                                        z: [120, 0, -60],
-                                        rotateY: [90, 0, -90]
-                                    }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 1.5,
-                                        delay: 0.2 + (j * 0.03),
-                                        ease: "easeOut"
-                                    }}
-                                    className="bg-primary/20 border border-primary/40 backdrop-blur-sm"
-                                />
-                            ))}
-                        </div>
                         <motion.div
                             initial={{ opacity: 0, y: 50, scale: 1.05, filter: "blur(12px)" }}
                             whileInView={{ opacity: 1, y: 0, scale: 1.05, filter: "blur(0px)" }}
@@ -140,28 +96,6 @@ export default function Expectations() {
 
                     {/* Networking */}
                     <div className="relative group h-full">
-                        {/* Digital Assembly Fragments */}
-                        <div className="absolute inset-0 grid grid-cols-5 grid-rows-5 gap-1 pointer-events-none overflow-hidden z-20">
-                            {Array.from({ length: 25 }).map((_, j) => (
-                                <motion.div
-                                    key={j}
-                                    initial={{ opacity: 0, scale: 0, z: 120 }}
-                                    whileInView={{
-                                        opacity: [0, 1, 0],
-                                        scale: [0, 1.2, 0.5],
-                                        z: [120, 0, -60],
-                                        rotateY: [90, 0, -90]
-                                    }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        duration: 1.5,
-                                        delay: 0.4 + (j * 0.03),
-                                        ease: "easeOut"
-                                    }}
-                                    className="bg-blue-500/20 border border-blue-500/40 backdrop-blur-sm"
-                                />
-                            ))}
-                        </div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
                             whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}

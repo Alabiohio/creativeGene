@@ -96,28 +96,6 @@ export default function Registration() {
                 </motion.div>
 
                 <div className="relative group">
-                    {/* Digital Assembly Fragments */}
-                    <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 gap-2 pointer-events-none overflow-hidden z-20">
-                        {Array.from({ length: 36 }).map((_, j) => (
-                            <motion.div
-                                key={j}
-                                initial={{ opacity: 0, scale: 0, z: 150 }}
-                                whileInView={{
-                                    opacity: [0, 1, 0],
-                                    scale: [0, 1.3, 0.4],
-                                    z: [150, 0, -80],
-                                    rotateY: [90, 0, -90]
-                                }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 1.8,
-                                    delay: 0.3 + (j * 0.025),
-                                    ease: "easeOut"
-                                }}
-                                className="bg-primary/20 border border-primary/40 backdrop-blur-md"
-                            />
-                        ))}
-                    </div>
 
                     <motion.form
                         initial={{ opacity: 0, y: 50, filter: "blur(15px)" }}

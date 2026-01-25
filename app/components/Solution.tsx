@@ -35,28 +35,6 @@ export default function Solution() {
                             "How to overcome imposter syndrome?"
                         ].map((question, i) => (
                             <div key={i} className="relative group">
-                                {/* Digital Assembly Fragments */}
-                                <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-1 pointer-events-none overflow-hidden z-20">
-                                    {Array.from({ length: 16 }).map((_, j) => (
-                                        <motion.div
-                                            key={j}
-                                            initial={{ opacity: 0, scale: 0, z: 100 }}
-                                            whileInView={{
-                                                opacity: [0, 1, 0],
-                                                scale: [0, 1.2, 0.5],
-                                                z: [100, 0, -50],
-                                                rotateY: [90, 0, -90]
-                                            }}
-                                            viewport={{ once: true }}
-                                            transition={{
-                                                duration: 1.5,
-                                                delay: (i * 0.1) + (j * 0.04),
-                                                ease: "easeOut"
-                                            }}
-                                            className="bg-primary/40 border border-primary/60 backdrop-blur-sm"
-                                        />
-                                    ))}
-                                </div>
 
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}

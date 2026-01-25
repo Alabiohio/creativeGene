@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { useState } from "react";
+import { supabase } from "../lib/supabase";
 
 export default function Registration() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: "" });
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -24,10 +27,50 @@ export default function Registration() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        alert("Registration submitted! (This is a demo)");
+        setIsSubmitting(true);
+        setStatus({ type: null, message: "" });
+
+        try {
+            const { error } = await supabase
+                .from('registrations')
+                .insert([
+                    {
+                        full_name: formData.fullName,
+                        email: formData.email,
+                        phone: formData.phone,
+                        school: formData.school,
+                        level: formData.level,
+                        department: formData.department,
+                        career_interest: formData.careerInterest,
+                        learning_tech: formData.learningTech,
+                        source: formData.source,
+                        attending: formData.attending
+                    }
+                ]);
+
+            if (error) throw error;
+
+            setStatus({ type: 'success', message: "Registration successful! See you there." });
+            setFormData({
+                fullName: "",
+                email: "",
+                phone: "",
+                school: "",
+                level: "",
+                department: "",
+                careerInterest: "",
+                learningTech: "no",
+                source: "",
+                attending: "yes"
+            });
+        } catch (error: any) {
+            console.error("Submission error:", error);
+            setStatus({ type: 'error', message: error.message || "Something went wrong. Please try again." });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -127,6 +170,7 @@ export default function Registration() {
                                 <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">School / Institution</label>
                                 <Input
                                     name="school"
+                                    required
                                     value={formData.school}
                                     onChange={handleChange}
                                     placeholder="Institution Name"
@@ -140,6 +184,7 @@ export default function Registration() {
                                 <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Level / Year</label>
                                 <select
                                     name="level"
+                                    required
                                     value={formData.level}
                                     onChange={handleChange}
                                     className="w-full h-16 px-6 rounded-3xl border border-white/10 bg-white/5 text-lg text-white focus:outline-none focus:border-primary/50 transition-all font-medium appearance-none"
@@ -158,6 +203,7 @@ export default function Registration() {
                                 <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Department / Course of Study</label>
                                 <Input
                                     name="department"
+                                    required
                                     value={formData.department}
                                     onChange={handleChange}
                                     placeholder="Computer Science, Engineering..."
@@ -171,6 +217,7 @@ export default function Registration() {
                                 <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Career Interest</label>
                                 <Input
                                     name="careerInterest"
+                                    required
                                     value={formData.careerInterest}
                                     onChange={handleChange}
                                     placeholder="Dev, Design, Data, Product..."
@@ -196,6 +243,7 @@ export default function Registration() {
                                 <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">How'd you hear about us?</label>
                                 <select
                                     name="source"
+                                    required
                                     value={formData.source}
                                     onChange={handleChange}
                                     className="w-full h-16 px-6 rounded-3xl border border-white/10 bg-white/5 text-lg text-white focus:outline-none focus:border-primary/50 transition-all font-medium appearance-none"
@@ -252,10 +300,52 @@ export default function Registration() {
                         <Button
                             type="submit"
                             size="lg"
-                            className="w-full h-24 text-2xl mt-12 bg-white text-black hover:bg-primary hover:text-white rounded-[32px] font-black uppercase tracking-[0.2em] shadow-2xl transition-all duration-500 hover:-translate-y-2 border-none"
+                            disabled={isSubmitting}
+                            className={`w-full h-24 text-2xl mt-12 rounded-[32px] font-black uppercase tracking-[0.2em] shadow-2xl transition-all duration-500 border-none ${isSubmitting ? 'bg-gray-600 text-gray-400 cursor-not-allowed' : 'bg-white text-black hover:bg-primary hover:text-white hover:-translate-y-2'}`}
                         >
-                            Secure My Spot
+                            {isSubmitting ? "Submitting..." : "Secure My Spot"}
                         </Button>
+
+                        {status.type && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                className={`p-8 rounded-[40px] text-center border-2 backdrop-blur-xl mt-8 ${status.type === 'success'
+                                    ? 'bg-primary/20 border-primary/50 text-white shadow-[0_0_50px_-12px_rgba(var(--primary),0.5)]'
+                                    : 'bg-red-500/20 border-red-500/50 text-red-200'
+                                    }`}
+                            >
+                                <div className="flex flex-col items-center gap-4">
+                                    {status.type === 'success' ? (
+                                        <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-2">
+                                            <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                    ) : (
+                                        <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-2">
+                                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </div>
+                                    )}
+                                    <h3 className="text-2xl font-black uppercase tracking-wider">
+                                        {status.type === 'success' ? 'Vision Secured!' : 'Mission Failed!'}
+                                    </h3>
+                                    <p className="text-lg opacity-80 font-medium">
+                                        {status.message}
+                                    </p>
+                                    {status.type === 'success' && (
+                                        <button
+                                            onClick={() => setStatus({ type: null, message: "" })}
+                                            className="mt-4 px-8 py-3 bg-white/10 hover:bg-white/20 rounded-full text-sm font-bold transition-all"
+                                        >
+                                            Dismiss
+                                        </button>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
                     </motion.form>
                 </div>
             </div>

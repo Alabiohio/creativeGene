@@ -1,0 +1,96 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Button } from "./ui/button";
+
+export default function Hero() {
+    return (
+        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden perspective-1000">
+            {/* 3D Atmospheric Background */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_#2a0a20_0%,_#000000_100%)] z-0" />
+
+            {/* Gene Background Image */}
+            <div
+                className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen z-0 blur-sm"
+            />
+
+            {/* Animated Floating Orbs */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse z-0" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] animate-pulse delay-700 z-0" />
+
+            {/* Grid Floor Effect for Depth */}
+            <div
+                className="absolute bottom-0 left-0 right-0 h-[50vh] bg-[linear-gradient(to_bottom,transparent_0%,#db277710_100%)] transform perspective-[500px] rotate-x-[60deg] opacity-50 z-0"
+                style={{ backgroundImage: 'linear-gradient(#db277720 1px, transparent 1px), linear-gradient(90deg, #db277720 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+            />
+
+            <div className="container relative z-10 mx-auto px-4 text-center">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8, rotateX: 20 }}
+                    animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                    transition={{ duration: 1, type: "spring" }}
+                    className="relative inline-block"
+                >
+                    {/* Hosted by Badge */}
+                    <div className="flex items-center gap-3 bg-white/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10 mb-8 mx-auto w-fit">
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-primary">
+                            <Image
+                                src="/Praise_Unuigboje.jpeg"
+                                alt="Praise Unuigboje"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <span className="text-sm font-medium text-gray-300">
+                            Hosted by <span className="text-white font-bold text-gradient">Praise Unuigboje</span>
+                        </span>
+                    </div>
+
+                    {/* Glowing Aura behind text */}
+                    <div className="absolute -inset-10 bg-primary/20 blur-[60px] rounded-full" />
+
+                    <h1 className="relative text-7xl md:text-9xl font-black tracking-tighter mb-6 leading-tight">
+                        <span className="block text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">CREATIVE</span>
+                        <span className="text-gradient drop-shadow-[0_0_30px_rgba(219,39,119,0.6)]">GENE</span>
+                    </h1>
+                </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-xl md:text-3xl text-gray-200 max-w-3xl mx-auto mb-10 font-light tracking-wide"
+                >
+                    Unveiling the <span className="font-semibold text-white shadow-purple-500/50">Creative Force</span> Within You
+                </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                >
+                    <Button
+                        size="lg"
+                        className="text-xl px-12 py-8 bg-gradient-to-r from-primary to-accent hover:to-primary border-t border-white/20 shadow-[0_10px_40px_-10px_rgba(219,39,119,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(219,39,119,0.8)] hover:-translate-y-1 transition-all duration-300 rounded-full font-bold tracking-widest uppercase"
+                        onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                        Join the Movement
+                    </Button>
+                </motion.div>
+            </div>
+
+            {/* Floating 3D Elements (Abstract) */}
+            <motion.div
+                animate={{ y: [-20, 20, -20], rotate: [0, 10, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-20 right-[10%] w-32 h-32 glass-panel rounded-2xl rotate-12 z-1 hidden md:block border-primary/30"
+            />
+            <motion.div
+                animate={{ y: [20, -20, 20], rotate: [0, -10, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-40 left-[10%] w-24 h-24 glass-panel rounded-full z-1 hidden md:block border-secondary/30"
+            />
+        </section>
+    );
+}

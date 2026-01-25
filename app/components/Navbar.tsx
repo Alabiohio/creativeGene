@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -23,19 +22,19 @@ export default function Navbar() {
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-md py-4 border-b border-white/10" : "bg-transparent py-6"
                 }`}
         >
-            <div className="w-full px-2 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     <Image
                         src="/cg-icon.png"
                         alt="Creative Gene Logo"
                         width={220}
                         height={60}
-                        className="rounded-lg"
+                        className="rounded-lg w-[140px] sm:w-[180px] md:w-[220px] transition-all duration-300"
                     />
                 </div>
 
-                <div className="hidden md:flex items-center gap-8">
-                    <div className="flex -space-x-3 overflow-hidden">
+                <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                    <div className="hidden lg:flex -space-x-3 overflow-hidden">
                         {[
                             "/Praise_Unuigboje.jpeg",
                             "/osakpolor_Ogiemudia.jpeg",
@@ -56,20 +55,24 @@ export default function Navbar() {
                             </motion.div>
                         ))}
                     </div>
-
-                    <nav className="flex items-center gap-10 text-xs font-black uppercase tracking-[0.2em] text-gray-400">
-                        <a href="#" className="hover:text-primary transition-colors">Home</a>
-                        <a href="#register" className="hover:text-primary transition-colors">Register</a>
-                    </nav>
-
-                    <Button
-                        size="sm"
-                        variant="default"
-                        className="bg-white text-black hover:bg-primary hover:text-white rounded-full px-8 h-10 font-bold uppercase tracking-widest text-[10px] shadow-lg shadow-white/5"
+                    <motion.button
+                        whileHover="hover"
+                        initial="initial"
+                        className="relative bg-white text-black overflow-hidden rounded-full px-8 h-10 font-bold uppercase tracking-widest text-[10px] shadow-lg shadow-white/5 group border border-transparent"
                         onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
                     >
-                        Secure Spot
-                    </Button>
+                        <motion.div
+                            variants={{
+                                initial: { y: "100%" },
+                                hover: { y: 0 }
+                            }}
+                            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                            className="absolute inset-0 bg-primary"
+                        />
+                        <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                            Secure Spot
+                        </span>
+                    </motion.button>
                 </div>
 
                 <div className="md:hidden flex items-center pr-2">

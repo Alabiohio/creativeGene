@@ -81,7 +81,7 @@ function DNAStrands({ strandCount = 4 }) {
 }
 
 function LargeSmoke() {
-    const count = 10;
+    const count = 20;
     const mesh = useRef<THREE.InstancedMesh>(null);
 
     const smokeTexture = useMemo(() => {
@@ -92,8 +92,8 @@ function LargeSmoke() {
         const ctx = canvas.getContext('2d');
         if (ctx) {
             const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-            gradient.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
-            gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.08)');
+            gradient.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
+            gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.15)');
             gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, 128, 128);
@@ -103,13 +103,13 @@ function LargeSmoke() {
 
     const particles = useMemo(() => {
         return Array.from({ length: count }, (_, i) => ({
-            x: (Math.random() - 0.5) * 50,
-            y: -30 + (i * 10),
-            z: -15,
-            speed: 0.02 + Math.random() * 0.04,
-            scale: 40 + Math.random() * 30,
+            x: (Math.random() - 0.5) * 60,
+            y: -50 + Math.random() * 100,
+            z: -20 + Math.random() * 10,
+            speed: 0.05 + Math.random() * 0.08, // Increased speed
+            baseScale: 30 + Math.random() * 20,
             rot: Math.random() * Math.PI * 2,
-            rotSpeed: (Math.random() - 0.5) * 0.005,
+            rotSpeed: (Math.random() - 0.5) * 0.01,
         }));
     }, [count]);
 
@@ -120,10 +120,21 @@ function LargeSmoke() {
         particles.forEach((p, i) => {
             p.y += p.speed * 60 * delta;
             p.rot += p.rotSpeed * 60 * delta;
-            if (p.y > 50) p.y = -50;
+
+            // Loop back to bottom
+            if (p.y > 60) {
+                p.y = -60;
+                p.x = (Math.random() - 0.5) * 60;
+            }
+
+            // Smoke expands as it rises
+            const progress = (p.y + 60) / 120; // 0 to 1
+            const currentScale = p.baseScale * (1 + progress * 1.5);
+            const currentOpacity = 0.7 * (1 - progress * 0.5); // Fade slightly as it disperses
+
             dummy.position.set(p.x, p.y, p.z);
             dummy.rotation.z = p.rot;
-            dummy.scale.set(p.scale, p.scale, 1);
+            dummy.scale.set(currentScale, currentScale, 1);
             dummy.updateMatrix();
             mesh.current!.setMatrixAt(i, dummy.matrix);
         });
@@ -136,7 +147,7 @@ function LargeSmoke() {
             <meshStandardMaterial
                 map={smokeTexture}
                 transparent
-                opacity={0.4}
+                opacity={0.7}
                 depthWrite={false}
                 blending={THREE.AdditiveBlending}
                 color="#831843"

@@ -31,57 +31,64 @@ export default function Registration() {
     };
 
     return (
-        <section id="register" className="py-24 bg-muted/20 relative">
-            <div className="container mx-auto px-4 max-w-3xl">
+        <section id="register" className="py-32 bg-black relative overflow-hidden">
+            {/* Background Accents */}
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[150px] translate-y-1/2 -translate-x-1/2" />
+
+            <div className="container mx-auto px-4 max-w-5xl relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-12"
+                    className="text-center mb-20"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Register for <span className="text-gradient">Creative Gene</span>
+                    <h2 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none">
+                        SECURE YOUR <br />
+                        <span className="text-gradient underline decoration-primary decoration-4 underline-offset-[12px]">SPOT NOW</span>
                     </h2>
-                    <p className="text-gray-400 text-lg">
-                        Free entry. Fill in the form below to secure a spot.
+                    <p className="text-gray-400 text-xl md:text-2xl font-light">
+                        Free entry. Limited seats available for the visionary few.
                     </p>
                 </motion.div>
 
                 <motion.form
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
                     onSubmit={handleSubmit}
-                    className="glass p-8 md:p-12 rounded-2xl space-y-6"
+                    className="glass-panel p-10 md:p-20 rounded-[60px] space-y-10 border-white/5 bg-gradient-to-b from-white/5 to-transparent"
                 >
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Full Name</label>
+                    <div className="grid md:grid-cols-2 gap-10">
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Full Name</label>
                             <Input
                                 name="fullName"
                                 required
                                 value={formData.fullName}
                                 onChange={handleChange}
-                                placeholder="John Doe"
+                                placeholder="Praise Unuigboje"
+                                className="bg-white/5 border-white/10 h-16 px-6 rounded-3xl text-lg focus:border-primary/50 transition-all font-medium"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Email Address</label>
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Email Address</label>
                             <Input
                                 name="email"
                                 type="email"
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                placeholder="john@example.com"
+                                placeholder="hello@creativegene.com"
+                                className="bg-white/5 border-white/10 h-16 px-6 rounded-3xl text-lg focus:border-primary/50 transition-all font-medium"
                             />
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Phone Number</label>
+                    <div className="grid md:grid-cols-2 gap-10">
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Phone Number</label>
                             <Input
                                 name="phone"
                                 type="tel"
@@ -89,111 +96,81 @@ export default function Registration() {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder="+234..."
+                                className="bg-white/5 border-white/10 h-16 px-6 rounded-3xl text-lg focus:border-primary/50 transition-all font-medium"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">School / Institution</label>
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">School / Institution</label>
                             <Input
                                 name="school"
                                 value={formData.school}
                                 onChange={handleChange}
-                                placeholder="University of..."
+                                placeholder="Institution Name"
+                                className="bg-white/5 border-white/10 h-16 px-6 rounded-3xl text-lg focus:border-primary/50 transition-all font-medium"
                             />
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Level / Year of Study</label>
+                    <div className="grid md:grid-cols-2 gap-10">
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Level / Year</label>
                             <Input
                                 name="level"
                                 value={formData.level}
                                 onChange={handleChange}
-                                placeholder="100, 200..."
+                                placeholder="100, 200, Graduate..."
+                                className="bg-white/5 border-white/10 h-16 px-6 rounded-3xl text-lg focus:border-primary/50 transition-all font-medium"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Department / Course of Study</label>
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Career Interest</label>
                             <Input
-                                name="department"
-                                value={formData.department}
+                                name="careerInterest"
+                                value={formData.careerInterest}
                                 onChange={handleChange}
-                                placeholder="Computer Science..."
+                                placeholder="Dev, Design, Data, Product..."
+                                className="bg-white/5 border-white/10 h-16 px-6 rounded-3xl text-lg focus:border-primary/50 transition-all font-medium"
                             />
                         </div>
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-300">Current Career Interest</label>
-                        <Input
-                            name="careerInterest"
-                            value={formData.careerInterest}
-                            onChange={handleChange}
-                            placeholder="Software Dev, Design, Data, Unsure..."
-                        />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Are You Currently Learning Any Tech Skill?</label>
+                    <div className="grid md:grid-cols-2 gap-10">
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">Learning Tech?</label>
                             <select
                                 name="learningTech"
                                 value={formData.learningTech}
                                 onChange={handleChange}
-                                className="w-full h-10 rounded-md border border-input bg-white/5 px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                className="w-full h-16 px-6 rounded-3xl border border-white/10 bg-white/5 text-lg text-white focus:outline-none focus:border-primary/50 transition-all font-medium appearance-none"
                             >
-                                <option value="yes" className="bg-black">Yes</option>
-                                <option value="no" className="bg-black">No</option>
+                                <option value="yes" className="bg-black">Yes, currently learning</option>
+                                <option value="no" className="bg-black">Not yet</option>
                             </select>
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">How Did You Hear About Us?</label>
+                        <div className="space-y-4">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-[0.3em] ml-2">How'd you hear about us?</label>
                             <select
                                 name="source"
                                 value={formData.source}
                                 onChange={handleChange}
-                                className="w-full h-10 rounded-md border border-input bg-white/5 px-3 py-2 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                className="w-full h-16 px-6 rounded-3xl border border-white/10 bg-white/5 text-lg text-white focus:outline-none focus:border-primary/50 transition-all font-medium appearance-none"
                             >
-                                <option value="" className="bg-black">Select...</option>
+                                <option value="" className="bg-black">Select source...</option>
                                 <option value="instagram" className="bg-black">Instagram</option>
                                 <option value="whatsapp" className="bg-black">WhatsApp</option>
-                                <option value="twitter" className="bg-black">Twitter</option>
-                                <option value="friend" className="bg-black">Friend</option>
-                                <option value="school" className="bg-black">School</option>
-                                <option value="other" className="bg-black">Other</option>
+                                <option value="twitter" className="bg-black">Twitter (X)</option>
+                                <option value="friend" className="bg-black">From a Friend</option>
+                                <option value="school" className="bg-black">At School</option>
+                                <option value="other" className="bg-black">Other Channels</option>
                             </select>
                         </div>
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-300">Will You Be Attending the Event?</label>
-                        <div className="flex gap-6 pt-2">
-                            <label className="flex items-center gap-2 cursor-pointer">
-                                <input
-                                    type="radio"
-                                    name="attending"
-                                    value="yes"
-                                    checked={formData.attending === "yes"}
-                                    onChange={handleChange}
-                                    className="accent-primary w-4 h-4"
-                                />
-                                <span className="text-sm">Yes, definitely</span>
-                            </label>
-                            <label className="flex items-center gap-2 cursor-pointer">
-                                <input
-                                    type="radio"
-                                    name="attending"
-                                    value="not_sure"
-                                    checked={formData.attending === "not_sure"}
-                                    onChange={handleChange}
-                                    className="accent-primary w-4 h-4"
-                                />
-                                <span className="text-sm">Not sure yet</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <Button type="submit" size="lg" className="w-full text-lg mt-8 bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                    <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full h-24 text-2xl mt-12 bg-white text-black hover:bg-primary hover:text-white rounded-[32px] font-black uppercase tracking-[0.2em] shadow-2xl transition-all duration-500 hover:-translate-y-2 border-none"
+                    >
                         Secure My Spot
                     </Button>
                 </motion.form>

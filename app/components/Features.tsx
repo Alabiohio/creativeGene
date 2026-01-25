@@ -28,37 +28,45 @@ const features = [
 
 export default function Features() {
     return (
-        <section className="py-24 relative z-10">
+        <section className="py-32 relative z-10 overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -z-10" />
+
             <div className="container mx-auto px-4">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-6xl font-bold text-center mb-16 drop-shadow-lg"
+                    className="text-center mb-24"
                 >
-                    What Makes <span className="text-gradient">Creative Gene</span> Different?
-                </motion.h2>
+                    <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none">
+                        WHAT MAKES <br />
+                        <span className="text-gradient">CREATIVE GENE</span> DIFFERENT?
+                    </h2>
+                    <div className="w-24 h-1.5 bg-primary/50 mx-auto rounded-full" />
+                </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(219,39,119,0.3)] transition-all duration-300 group relative overflow-hidden"
+                            transition={{ delay: index * 0.1, duration: 0.6 }}
+                            className="glass-panel p-10 rounded-[40px] hover:bg-white/5 hover:border-primary/50 transition-all duration-500 group relative flex flex-col items-center text-center shadow-xl"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                            <div className="relative z-10 bg-black/40 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform border border-white/10 shadow-inner">
-                                <feature.icon className="w-8 h-8 text-secondary drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
+                            <div className="mb-8 p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-110 group-hover:from-primary/20 transition-all duration-500 border border-white/5">
+                                <feature.icon className="w-10 h-10 text-secondary drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]" />
                             </div>
 
-                            <h3 className="relative z-10 text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                            <p className="relative z-10 text-gray-300 text-sm leading-relaxed">
+                            <h3 className="text-2xl font-black mb-4 text-white tracking-tight uppercase leading-tight group-hover:text-primary transition-colors">{feature.title}</h3>
+                            <p className="text-gray-400 text-lg leading-relaxed font-light">
                                 {feature.description}
                             </p>
+
+                            {/* Decorative line */}
+                            <div className="mt-8 w-0 group-hover:w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-all duration-700" />
                         </motion.div>
                     ))}
                 </div>

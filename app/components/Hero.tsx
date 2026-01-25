@@ -33,8 +33,13 @@ export default function Hero() {
                     className="relative inline-block"
                 >
                     {/* Hosted by Badge */}
-                    <div className="flex items-center gap-3 bg-white/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10 mb-8 mx-auto w-fit">
-                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-primary">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex items-center gap-3 bg-white/5 backdrop-blur-2xl px-6 py-3 rounded-full border border-white/20 mb-12 mx-auto w-fit shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:border-primary/50 transition-colors"
+                    >
+                        <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary shadow-lg shadow-primary/20">
                             <Image
                                 src="/Praise_Unuigboje.jpeg"
                                 alt="Praise Unuigboje"
@@ -42,17 +47,17 @@ export default function Hero() {
                                 className="object-cover"
                             />
                         </div>
-                        <span className="text-sm font-medium text-gray-300">
-                            Hosted by <span className="text-white font-bold text-gradient">Praise Unuigboje</span>
+                        <span className="text-sm md:text-base font-medium text-gray-200 tracking-wide">
+                            Hosted by <span className="text-white font-black text-gradient uppercase tracking-widest">Praise Unuigboje</span>
                         </span>
-                    </div>
+                    </motion.div>
 
                     {/* Glowing Aura behind text */}
-                    <div className="absolute -inset-10 bg-primary/20 blur-[60px] rounded-full" />
+                    <div className="absolute -inset-10 bg-primary/30 blur-[100px] rounded-full opacity-50" />
 
-                    <h1 className="relative text-7xl md:text-9xl font-black tracking-tighter mb-6 leading-tight">
-                        <span className="block text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">CREATIVE</span>
-                        <span className="text-gradient drop-shadow-[0_0_30px_rgba(219,39,119,0.6)]">GENE</span>
+                    <h1 className="relative text-8xl md:text-[11rem] lg:text-[13rem] font-black tracking-tighter mb-8 leading-[0.85] select-none">
+                        <span className="block text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">CREATIVE</span>
+                        <span className="text-gradient drop-shadow-[0_0_50px_rgba(219,39,119,0.7)]">GENE.</span>
                     </h1>
                 </motion.div>
 
@@ -60,19 +65,20 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="text-xl md:text-3xl text-gray-200 max-w-3xl mx-auto mb-10 font-light tracking-wide"
+                    className="text-2xl md:text-4xl text-gray-200 max-w-4xl mx-auto mb-12 font-extralight tracking-[0.15em] leading-relaxed uppercase"
                 >
-                    Unveiling the <span className="font-semibold text-white shadow-purple-500/50">Creative Force</span> Within You
+                    Unveiling the <span className="font-bold text-white border-b-2 border-primary pb-1">Creative Force</span> Within You
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
+                    className="flex flex-col md:flex-row items-center justify-center gap-6"
                 >
                     <Button
                         size="lg"
-                        className="text-xl px-12 py-8 bg-gradient-to-r from-primary to-accent hover:to-primary border-t border-white/20 shadow-[0_10px_40px_-10px_rgba(219,39,119,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(219,39,119,0.8)] hover:-translate-y-1 transition-all duration-300 rounded-full font-bold tracking-widest uppercase"
+                        className="text-xl px-16 py-10 bg-white text-black hover:bg-primary hover:text-white border-none shadow-[0_20px_50px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_20px_60px_-10px_rgba(219,39,119,0.8)] hover:-translate-y-2 transition-all duration-500 rounded-full font-black tracking-[0.2em] uppercase"
                         onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Join the Movement

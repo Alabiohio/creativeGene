@@ -57,15 +57,15 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    <nav className="flex items-center gap-6 text-sm font-medium text-gray-300">
-                        <a href="#" className="hover:text-white transition-colors">Home</a>
-                        <a href="#register" className="hover:text-white transition-colors">Register</a>
+                    <nav className="flex items-center gap-10 text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+                        <a href="#" className="hover:text-primary transition-colors">Home</a>
+                        <a href="#register" className="hover:text-primary transition-colors">Register</a>
                     </nav>
 
                     <Button
                         size="sm"
                         variant="default"
-                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
+                        className="bg-white text-black hover:bg-primary hover:text-white rounded-full px-8 h-10 font-bold uppercase tracking-widest text-[10px] shadow-lg shadow-white/5"
                         onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Secure Spot

@@ -74,6 +74,9 @@ export const viewport = {
   maximumScale: 5,
 };
 
+import FirebaseAnalytics from "./components/FirebaseAnalytics";
+import { Suspense } from "react";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,6 +87,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Suspense fallback={null}>
+          <FirebaseAnalytics />
+        </Suspense>
         <Background />
         <div className="relative z-10">
           {children}

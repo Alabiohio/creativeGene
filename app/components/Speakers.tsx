@@ -119,7 +119,7 @@ export default function Speakers() {
                                         <p className="text-gray-400 font-black uppercase tracking-[0.2em] text-[10px]">
                                             {speaker.role}
                                         </p>
-                                        <span className="text-white/30 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <span className="text-white/30 text-xl font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                            More →
                                         </span>
                                     </div>

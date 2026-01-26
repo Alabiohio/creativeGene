@@ -12,12 +12,12 @@ export default function Hero() {
 
             {/* Gene Background Image */}
             <div
-                className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen z-0 blur-sm"
+                className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen z-0 blur-[2px]"
             />
 
             {/* Animated Floating Orbs */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse z-0" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] animate-pulse delay-700 z-0" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[80px] animate-pulse z-0" />
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] animate-pulse delay-700 z-0" />
 
             {/* Grid Floor Effect for Depth */}
             <div
@@ -44,6 +44,7 @@ export default function Hero() {
                                 src="/Praise_Unuigboje.jpeg"
                                 alt="Praise Unuigboje"
                                 fill
+                                priority
                                 className="object-cover"
                             />
                         </div>
@@ -53,7 +54,7 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Glowing Aura behind text */}
-                    <div className="absolute -inset-10 bg-primary/30 blur-[100px] rounded-full opacity-50" />
+                    <div className="absolute -inset-10 bg-primary/30 blur-[80px] rounded-full opacity-50" />
 
                     <h1 className="relative text-5xl sm:text-7xl md:text-[11rem] lg:text-[13rem] font-black tracking-tight md:tracking-tighter mb-8 leading-[0.85] select-none">
                         <span className="block text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">CREATIVE</span>

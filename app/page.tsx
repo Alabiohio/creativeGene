@@ -1,25 +1,30 @@
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Problem from "./components/Problem";
-import Solution from "./components/Solution";
-import Speakers from "./components/Speakers";
-import Features from "./components/Features";
-import Expectations from "./components/Expectations";
-import Registration from "./components/Registration";
-import Footer from "./components/Footer";
+
+// Lazy load components that are below the fold
+const Problem = lazy(() => import("./components/Problem"));
+const Solution = lazy(() => import("./components/Solution"));
+const Speakers = lazy(() => import("./components/Speakers"));
+const Features = lazy(() => import("./components/Features"));
+const Expectations = lazy(() => import("./components/Expectations"));
+const Registration = lazy(() => import("./components/Registration"));
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function Home() {
   return (
     <main className="min-h-screen text-white selection:bg-primary/30">
       <Navbar />
       <Hero />
-      <Problem />
-      <Solution />
-      <Speakers />
-      <Features />
-      <Expectations />
-      <Registration />
-      <Footer />
+      <Suspense fallback={<div className="h-screen" />}>
+        <Problem />
+        <Solution />
+        <Speakers />
+        <Features />
+        <Expectations />
+        <Registration />
+        <Footer />
+      </Suspense>
     </main>
   );
 }

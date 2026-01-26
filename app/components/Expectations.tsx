@@ -27,8 +27,8 @@ export default function Expectations() {
                     {/* Panel Sessions */}
                     <div className="relative group h-full">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
-                            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.6, duration: 0.8 }}
                             className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-primary/50 transition-all duration-500 relative z-10 h-full overflow-hidden"
@@ -63,8 +63,8 @@ export default function Expectations() {
                     {/* Live Q&A */}
                     <div className="relative group scale-105 z-20 h-full">
                         <motion.div
-                            initial={{ opacity: 0, y: 50, scale: 1.05, filter: "blur(12px)" }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1.05, filter: "blur(0px)" }}
+                            initial={{ opacity: 0, y: 50, scale: 1.05 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1.05 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.8, duration: 0.8 }}
                             className="glass-panel p-12 rounded-[50px] flex flex-col border-primary/30 bg-gradient-to-br from-primary/10 via-transparent to-transparent hover:border-primary/60 transition-all duration-500 relative z-10 h-full group shadow-2xl shadow-primary/20 overflow-hidden"
@@ -97,8 +97,8 @@ export default function Expectations() {
                     {/* Networking */}
                     <div className="relative group h-full">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95, filter: "blur(12px)" }}
-                            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 1, duration: 0.8 }}
                             className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-blue-500/50 transition-all duration-500 relative z-10 h-full overflow-hidden"

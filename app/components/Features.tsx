@@ -51,8 +51,8 @@ export default function Features() {
                         <div key={index} className="relative group">
 
                             <motion.div
-                                initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-                                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: (index * 0.1) + 0.5, duration: 0.6 }}
                                 className="glass-panel p-10 rounded-[40px] hover:bg-white/5 hover:border-primary/50 transition-all duration-500 relative z-10 flex flex-col items-center text-center shadow-xl h-full overflow-hidden"

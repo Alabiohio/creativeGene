@@ -27,6 +27,8 @@ Beyond technology and medicine, Praisetech is deeply committed to positive socia
         name: "Osakpolor Ogiemudia",
         role: "Guest Speaker",
         image: "/osakpolor_Ogiemudia.jpeg",
+        excerpt: "48th President of PANS UNIBEN - A catalyst for growth, innovator, and builder inspiring positive change in public health and industrial pharmacy.",
+        bio: "Ogiemudia Osakpolor, serves as the 48th President of the Pharmaceutical Association of Nigerian Students (PANS) at the University of Benin, Edo State. He is a catalyst for growth, an innovator, and a builder, consistently motivated to inspire personal and environmental positive growth. His core interests include the public health sector and industrial pharmacy space, with a strong desire to remain politically active in various spheres. He's a member of Impact Africa Initiative, Junior Chamber International, and Students Finance Club."
     },
     {
         name: "Favour Inerhumwunwa",
@@ -120,7 +122,7 @@ export default function Speakers() {
                                             {speaker.role}
                                         </p>
                                         <span className="text-white/30 text-xl font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                           More →
+                                            More →
                                         </span>
                                     </div>
                                 </div>

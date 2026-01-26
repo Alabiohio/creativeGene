@@ -106,10 +106,11 @@ function LargeSmoke() {
             x: (Math.random() - 0.5) * 60,
             y: -50 + Math.random() * 100,
             z: -20 + Math.random() * 10,
-            speed: 0.05 + Math.random() * 0.08, // Increased speed
+            speed: 0.15 + Math.random() * 0.15, // Increased speed for more visible upward motion
             baseScale: 30 + Math.random() * 20,
             rot: Math.random() * Math.PI * 2,
             rotSpeed: (Math.random() - 0.5) * 0.01,
+            driftSpeed: (Math.random() - 0.5) * 0.02, // Horizontal drift
         }));
     }, [count]);
 
@@ -117,9 +118,15 @@ function LargeSmoke() {
 
     useFrame((state, delta) => {
         if (!mesh.current) return;
+        const time = state.clock.getElapsedTime();
+
         particles.forEach((p, i) => {
+            // Faster upward movement
             p.y += p.speed * 60 * delta;
             p.rot += p.rotSpeed * 60 * delta;
+
+            // Add horizontal drift for natural smoke movement
+            p.x += Math.sin(time + i) * p.driftSpeed * 60 * delta;
 
             // Loop back to bottom
             if (p.y > 60) {
@@ -127,14 +134,16 @@ function LargeSmoke() {
                 p.x = (Math.random() - 0.5) * 60;
             }
 
-            // Smoke expands as it rises
+            // Smoke expands and stretches vertically as it rises
             const progress = (p.y + 60) / 120; // 0 to 1
-            const currentScale = p.baseScale * (1 + progress * 1.5);
-            const currentOpacity = 0.7 * (1 - progress * 0.5); // Fade slightly as it disperses
+            const horizontalScale = p.baseScale * (1 + progress * 2); // Expands more
+            const verticalScale = p.baseScale * (1 + progress * 3); // Stretches upward even more
+            const currentOpacity = 0.8 * (1 - progress * 0.7); // More dramatic fade
 
             dummy.position.set(p.x, p.y, p.z);
             dummy.rotation.z = p.rot;
-            dummy.scale.set(currentScale, currentScale, 1);
+            // Vertical stretching makes upward motion more visible
+            dummy.scale.set(horizontalScale, verticalScale, 1);
             dummy.updateMatrix();
             mesh.current!.setMatrixAt(i, dummy.matrix);
         });

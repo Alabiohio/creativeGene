@@ -175,7 +175,7 @@ export default function Background() {
     return (
         <div className="fixed inset-0 -z-10 bg-black overflow-hidden pointer-events-none">
             <Suspense fallback={<div className="w-full h-full bg-black" />}>
-                <div className="absolute inset-0 blur-sm"> {/* Reduced blur so elements are visible but soft */}
+                <div className="absolute inset-0 blur-lg"> {/* Reduced blur so elements are visible but soft */}
                     <Canvas
                         dpr={1}
                         gl={{ antialias: false, powerPreference: "high-performance", alpha: true }}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Solution() {
     return (
@@ -18,54 +19,6 @@ export default function Solution() {
                 >
                     <div className="px-6 py-2 rounded-full bg-secondary/10 text-secondary font-black text-xs tracking-[0.3em] mb-12 border border-secondary/30 uppercase shadow-[0_0_20px_rgba(250,204,21,0.2)]">
                         The Solution
-                    </div>
-
-                    <h2 className="text-6xl md:text-9xl font-black mb-20 leading-[0.85] tracking-tighter">
-                        LEARN FROM <br />
-                        <span className="text-gradient">THE MASTERS</span>
-                    </h2>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                        {[
-                            "How did you get your first real opportunity?",
-                            "What skills truly matter?",
-                            "How do you stand out?",
-                            "What mistakes should be avoided?",
-                            "How do you choose the right tech path?",
-                            "How to overcome imposter syndrome?"
-                        ].map((question, i) => (
-                            <div key={i} className="relative group">
-
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                                    viewport={{ once: true }}
-                                    transition={{
-                                        delay: (i * 0.1) + 0.6,
-                                        duration: 0.8,
-                                        type: "spring",
-                                        stiffness: 100
-                                    }}
-                                    className="glass-panel p-10 rounded-[40px] text-left hover:border-primary/50 transition-all duration-500 relative z-10 overflow-hidden"
-                                >
-                                    <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
-
-                                    {/* Tech Brackets */}
-                                    <div className="absolute top-6 left-6 w-4 h-4 border-t-2 border-l-2 border-primary/20 group-hover:border-primary/50 transition-colors" />
-                                    <div className="absolute bottom-6 right-6 w-4 h-4 border-b-2 border-r-2 border-primary/20 group-hover:border-primary/50 transition-colors" />
-
-                                    <span className="text-6xl text-primary/10 font-serif absolute top-4 left-6 group-hover:text-primary/20 transition-colors">"</span>
-                                    <p className="text-xl md:text-2xl font-bold text-gray-200 relative z-10 mt-6 group-hover:text-white transition-colors leading-tight">
-                                        {question}
-                                    </p>
-
-                                    <div className="mt-8 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                        <div className="h-[1px] w-8 bg-primary/40" />
-                                        <span className="text-[10px] font-mono text-primary/60 tracking-widest uppercase">Deciphering...</span>
-                                    </div>
-                                </motion.div>
-                            </div>
-                        ))}
                     </div>
 
                     <div className="mt-32 w-full p-8 lg:p-16 glass-panel rounded-[50px] relative overflow-hidden border-white/10 group hover:border-white/20 transition-all duration-700">
@@ -126,8 +79,8 @@ export default function Solution() {
                             </div>
                         </div>
                     </div>
-                </motion.div>
-            </div>
-        </section>
+                </motion.div >
+            </div >
+        </section >
     );
 }

@@ -322,6 +322,10 @@ export default function Registration() {
                                                 href="https://chat.whatsapp.com/DhOBPAJ3iCiJJG4aeeFabD"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open('https://chat.whatsapp.com/DhOBPAJ3iCiJJG4aeeFabD', '_blank', 'noopener,noreferrer');
+                                                }}
                                                 className="w-full py-6 bg-green-600 hover:bg-green-500 rounded-[24px] text-lg font-black uppercase tracking-wider transition-all flex items-center justify-center gap-3 shadow-lg shadow-green-900/40"
                                             >
                                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

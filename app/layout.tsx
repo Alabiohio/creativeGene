@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://creative-gene-preview.vercel.app"),
+  metadataBase: new URL("https://creativefestcon.vercel.app"),
   openGraph: {
     title: "Creative Gene | Unveiling the Creative Force Within You",
     description: "Join Creative Gene, an immersive tech experience designed to help you decode your potential. Learn from industry masters.",

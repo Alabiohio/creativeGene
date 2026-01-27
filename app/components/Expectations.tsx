@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MessageCircle, Mic, Network } from "lucide-react";
 
 export default function Expectations() {
@@ -11,26 +10,24 @@ export default function Expectations() {
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 opacity-50" />
 
             <div className="container relative z-10 mx-auto px-4">
-                <div className="text-center mb-24">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-6xl md:text-9xl font-black mb-8 tracking-tighter"
-                    >
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    className="text-center mb-24"
+                >
+                    <h2 className="text-6xl md:text-9xl font-black mb-8 tracking-tighter">
                         WHAT TO <span className="text-gradient italic">EXPECT</span>
-                    </motion.h2>
+                    </h2>
                     <div className="w-48 h-1 bg-white/10 mx-auto rounded-full" />
                 </div>
 
                 <div className="grid lg:grid-cols-3 gap-10">
                     {/* Panel Sessions */}
                     <div className="relative group h-full">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                            data-aos-delay="200"
                             className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-primary/50 transition-all duration-500 relative z-10 h-full overflow-hidden"
                         >
                             <div className="flex flex-col items-start gap-6 mb-8">
@@ -57,16 +54,15 @@ export default function Expectations() {
                                     </div>
                                 ))}
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Live Q&A */}
                     <div className="relative group scale-105 z-20 h-full">
-                        <motion.div
-                            initial={{ opacity: 0, y: 50, scale: 1.05 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1.05 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.8, duration: 0.8 }}
+                        <div
+                            data-aos="zoom-in"
+                            data-aos-duration="800"
+                            data-aos-delay="400"
                             className="glass-panel p-12 rounded-[50px] flex flex-col border-primary/30 bg-gradient-to-br from-primary/10 via-transparent to-transparent hover:border-primary/60 transition-all duration-500 relative z-10 h-full group shadow-2xl shadow-primary/20 overflow-hidden"
                         >
                             <div className="flex flex-col items-start gap-6 mb-8">
@@ -91,16 +87,15 @@ export default function Expectations() {
                                     </div>
                                 ))}
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Networking */}
                     <div className="relative group h-full">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 1, duration: 0.8 }}
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                            data-aos-delay="600"
                             className="glass-panel p-12 rounded-[50px] flex flex-col hover:border-blue-500/50 transition-all duration-500 relative z-10 h-full overflow-hidden"
                         >
                             <div className="flex flex-col items-start gap-6 mb-8">
@@ -130,18 +125,18 @@ export default function Expectations() {
                                     ))}
                                 </ul>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="mt-32 text-center">
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+                    <p
+                        data-aos="fade-in"
+                        data-aos-duration="1000"
                         className="text-2xl md:text-4xl font-light text-gray-400"
                     >
                         If <span className="text-white font-black underline decoration-primary decoration-4 underline-offset-8">growth</span> matters to you, this event is mandatory.
-                    </motion.p>
+                    </p>
                 </div>
             </div>
         </section>

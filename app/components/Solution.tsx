@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Solution() {
@@ -11,10 +10,9 @@ export default function Solution() {
             <div className="absolute -right-64 top-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] z-0" />
 
             <div className="container relative z-10 mx-auto px-4">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                <div
+                    data-aos="fade-in"
+                    data-aos-duration="1000"
                     className="flex flex-col items-center text-center"
                 >
                     <div className="px-6 py-2 rounded-full bg-secondary/10 text-secondary font-black text-xs tracking-[0.3em] mb-12 border border-secondary/30 uppercase shadow-[0_0_20px_rgba(250,204,21,0.2)]">
@@ -28,11 +26,10 @@ export default function Solution() {
                         <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px] group-hover:bg-primary/30 transition-colors duration-700" />
 
                         <div className="relative z-10 flex flex-col md:flex-row gap-16 items-center">
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
+                            <div
+                                data-aos="fade-right"
+                                data-aos-duration="800"
+                                data-aos-delay="200"
                                 className="md:w-1/2 text-left"
                             >
                                 <h3 className="text-5xl md:text-7xl font-black mb-8 text-white tracking-tighter leading-[0.9] relative">
@@ -44,10 +41,15 @@ export default function Solution() {
                                 <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light mb-12">
                                     Creative Gene is not just another tech event. It is an <span className="text-white font-medium underline decoration-primary decoration-2 underline-offset-4">immersive experience</span> designed to help you decode your potential.
                                 </p>
-                            </motion.div>
+                            </div>
 
                             <div className="md:w-1/2 grid grid-cols-1 gap-8">
-                                <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                                <div
+                                    data-aos="fade-left"
+                                    data-aos-duration="800"
+                                    data-aos-delay="400"
+                                    className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                                >
                                     <h4 className="text-2xl font-black text-secondary mb-6 flex items-center gap-3 uppercase tracking-wider">
                                         <div className="w-3 h-3 bg-secondary rounded-full animate-pulse" />
                                         Industry Insights
@@ -62,7 +64,12 @@ export default function Solution() {
                                     </ul>
                                 </div>
 
-                                <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                                <div
+                                    data-aos="fade-left"
+                                    data-aos-duration="800"
+                                    data-aos-delay="600"
+                                    className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                                >
                                     <h4 className="text-2xl font-black text-primary mb-6 flex items-center gap-3 uppercase tracking-wider">
                                         <div className="w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_15px_rgba(219,39,119,0.5)]" />
                                         Your Takeaway
@@ -79,7 +86,7 @@ export default function Solution() {
                             </div>
                         </div>
                     </div>
-                </motion.div >
+                </div>
             </div >
         </section >
     );

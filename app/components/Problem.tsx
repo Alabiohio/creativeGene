@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { UserX, Compass, AlertCircle, TrendingUp } from "lucide-react";
 
 const strugglePoints = [
@@ -30,11 +29,9 @@ export default function Problem() {
 
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-12 gap-16 items-start">
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration="800"
                         className="lg:col-span-12 mb-20"
                     >
                         <h2 className="text-6xl md:text-8xl lg:text-9xl font-black mb-12 leading-[0.9] tracking-tighter">
@@ -51,29 +48,24 @@ export default function Problem() {
                                 getting noticed while you feel like you're still in the same place.
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <h3
+                        data-aos="fade-up"
+                        data-aos-duration="600"
                         className="lg:col-span-12 text-3xl md:text-4xl font-bold text-white mb-8"
                     >
                         You may be
-                    </motion.h3>
+                    </h3>
                     <div className="lg:col-span-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {strugglePoints.map((point, index) => (
                             <div key={index} className="relative group">
-
-                                <motion.div
-                                    initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: (index * 0.15) + 0.5, duration: 0.6 }}
+                                <div
+                                    data-aos="fade-up"
+                                    data-aos-duration="600"
+                                    data-aos-delay={index * 150}
                                     className="glass-panel p-8 rounded-3xl flex flex-col gap-6 hover:border-primary/50 hover:bg-white/5 transition-all duration-500 relative z-10 h-full"
                                 >
-
                                     <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
                                         <point.icon className="w-8 h-8 text-primary" />
                                     </div>
@@ -82,16 +74,14 @@ export default function Problem() {
                                     {/* Tech Brackets */}
                                     <div className="absolute top-4 left-4 w-3 h-3 border-t border-l border-primary/20 group-hover:border-primary/50 transition-colors" />
                                     <div className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-primary/20 group-hover:border-primary/50 transition-colors" />
-                                </motion.div>
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                    <div
+                        data-aos="zoom-in"
+                        data-aos-duration="800"
                         className="lg:col-span-12 mt-20 p-12 glass-panel rounded-[40px] text-center border-primary/20 bg-gradient-to-br from-primary/5 to-transparent shadow-2xl"
                     >
                         <h3 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
@@ -104,7 +94,7 @@ export default function Problem() {
                         <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto italic">
                             "You don't need more tutorials. You need guidance from people who have already walked this road."
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

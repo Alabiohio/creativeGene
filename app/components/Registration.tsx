@@ -80,10 +80,9 @@ export default function Registration() {
             <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[150px] translate-y-1/2 -translate-x-1/2" />
 
             <div className="container mx-auto px-4 max-w-5xl relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
                     className="text-center mb-20"
                 >
                     <h2 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none">
@@ -93,15 +92,14 @@ export default function Registration() {
                     <p className="text-gray-400 text-xl md:text-2xl font-light">
                         Free entry. Limited seats available for the visionary few.
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="relative group">
 
-                    <motion.form
-                        initial={{ opacity: 0, y: 50, filter: "blur(15px)" }}
-                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.8, duration: 1 }}
+                    <form
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        data-aos-delay="400"
                         onSubmit={handleSubmit}
                         className="glass-panel p-10 md:p-20 rounded-[60px] space-y-10 border-white/5 bg-gradient-to-b from-white/5 to-transparent relative z-10"
                     >
@@ -344,7 +342,7 @@ export default function Registration() {
                                 </div>
                             </motion.div>
                         )}
-                    </motion.form>
+                    </form>
                 </div>
             </div>
         </section>

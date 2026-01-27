@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Background from "./components/Background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,7 +74,9 @@ export const viewport = {
 };
 
 import FirebaseAnalytics from "./components/FirebaseAnalytics";
+import AOSInit from "./AOSInit";
 import { Suspense } from "react";
+import ClientBackground from "./components/ClientBackground";
 
 export default function RootLayout({
   children,
@@ -86,14 +87,16 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <Suspense fallback={null}>
           <FirebaseAnalytics />
         </Suspense>
-        <Background />
+        <ClientBackground />
         <div className="relative z-10">
           {children}
         </div>
+        <AOSInit />
       </body>
     </html>
   );

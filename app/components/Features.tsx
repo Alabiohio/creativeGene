@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Users, HelpCircle, UserPlus, ArrowRight } from "lucide-react";
 
 const features = [
@@ -33,10 +32,9 @@ export default function Features() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -z-10" />
 
             <div className="container mx-auto px-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
                     className="text-center mb-24"
                 >
                     <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none">
@@ -44,17 +42,15 @@ export default function Features() {
                         <span className="text-gradient">CREATIVE GENE</span> DIFFERENT?
                     </h2>
                     <div className="w-24 h-1.5 bg-primary/50 mx-auto rounded-full" />
-                </motion.div>
+                </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (
                         <div key={index} className="relative group">
-
-                            <motion.div
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: (index * 0.1) + 0.5, duration: 0.6 }}
+                            <div
+                                data-aos="fade-up"
+                                data-aos-duration="800"
+                                data-aos-delay={index * 100}
                                 className="glass-panel p-10 rounded-[40px] hover:bg-white/5 hover:border-primary/50 transition-all duration-500 relative z-10 flex flex-col items-center text-center shadow-xl h-full overflow-hidden"
                             >
                                 <div className="mb-8 p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-110 group-hover:from-primary/20 transition-all duration-500 border border-white/5">
@@ -72,7 +68,7 @@ export default function Features() {
                                 {/* Tech Accents */}
                                 <div className="absolute top-6 left-6 w-4 h-4 border-t border-l border-primary/10 group-hover:border-primary/40 transition-colors" />
                                 <div className="absolute bottom-6 right-6 w-4 h-4 border-b border-r border-primary/10 group-hover:border-primary/40 transition-colors" />
-                            </motion.div>
+                            </div>
                         </div>
                     ))}
                 </div>

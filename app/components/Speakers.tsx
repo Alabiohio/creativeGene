@@ -60,15 +60,14 @@ export default function Speakers() {
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -z-10" />
 
             <div className="container mx-auto px-4">
-                <div className="text-center mb-24">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-6xl md:text-9xl font-black mb-6 tracking-tighter"
-                    >
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    className="text-center mb-24"
+                >
+                    <h2 className="text-6xl md:text-9xl font-black mb-6 tracking-tighter">
                         THE <span className="text-gradient underline decoration-primary decoration-4 underline-offset-8">VOICES</span>
-                    </motion.h2>
+                    </h2>
                     <p className="text-gray-400 text-xl md:text-2xl font-light max-w-2xl mx-auto">
                         Learn from the pioneers who are redefining the tech landscape with creativity and passion.
                     </p>
@@ -76,12 +75,11 @@ export default function Speakers() {
 
                 <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
                     {speakers.map((speaker, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2, duration: 0.8 }}
+                            data-aos="fade-up"
+                            data-aos-duration="800"
+                            data-aos-delay={index * 200}
                             className="group relative cursor-pointer"
                             onClick={() => setSelectedSpeaker(speaker)}
                         >
@@ -127,7 +125,7 @@ export default function Speakers() {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

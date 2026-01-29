@@ -89,7 +89,7 @@ export default function Navbar() {
                         onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
                         className="flex items-center gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full pl-3 pr-1 py-1 hover:bg-white/10 transition-all active:scale-95 shadow-lg group"
                     >
-                        <span className="text-[10px] font-black uppercase tracking-tighter text-white group-hover:text-primary transition-colors">Join</span>
+                        <span className="text-[10px] font-black uppercase tracking-tighter text-white group-hover:text-primary transition-colors">Register</span>
                         <div className="relative w-7 h-7 rounded-full overflow-hidden border border-primary transition-transform group-hover:scale-110">
                             <Image src="/Praise_Unuigboje.jpeg" alt="Host" fill className="object-cover" />
                         </div>

@@ -82,7 +82,7 @@ export default function Hero() {
                         className="text-lg md:text-xl px-10 md:px-16 py-6 md:py-10 bg-white text-black hover:bg-primary hover:text-white border-none shadow-[0_20px_50px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_20px_60px_-10px_rgba(219,39,119,0.8)] hover:-translate-y-2 transition-all duration-500 rounded-full font-black tracking-[0.2em] uppercase"
                         onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
                     >
-                        Join the Movement
+                        Register Now
                     </Button>
                 </motion.div>
             </div>

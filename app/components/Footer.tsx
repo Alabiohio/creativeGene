@@ -15,15 +15,15 @@ export default function Footer() {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center gap-3 group"
                     >
-                        <div className="relative w-12 h-12 opacity-85 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
+                        <div className="relative w-13 h-13 opacity-85 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
                             <Image
-                                src="/ohio.png"
-                                alt="Ohio Codespace Logo"
+                                src="/oheo.png"
+                                alt="Oheo Logo"
                                 fill
                                 className="object-contain"
                             />
                         </div>
-                        <p className="text-[10px] tracking-[0.2em] uppercase opacity-85 group-hover:opacity-100 group-hover:text-white transition-all duration-500">
+                        <p className="text-[13px] tracking-[0.2em] uppercase opacity-85 group-hover:opacity-100 group-hover:text-white transition-all duration-500">
                             Site by <span className="text-gray-300 font-semibold group-hover:text-primary transition-colors duration-500">Oheo</span>
                         </p>
                     </a>

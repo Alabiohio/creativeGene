@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className="mt-8 flex flex-col items-center gap-4">
                     <div className="h-px w-8 bg-white/10" />
                     <a
-                        href="https://ohiocodespace.vercel.app"
+                        href="https://oheo.site"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex flex-col items-center gap-3 group"
@@ -23,8 +23,8 @@ export default function Footer() {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="text-[10px] tracking-[0.2em] uppercase opacity-40 group-hover:opacity-100 group-hover:text-white transition-all duration-500">
-                            Powered by <span className="text-gray-300 font-semibold group-hover:text-primary transition-colors duration-500">Ohio Codespace</span>
+                        <p className="text-[10px] tracking-[0.2em] uppercase opacity-80 group-hover:opacity-100 group-hover:text-white transition-all duration-500">
+                            Site by <span className="text-gray-300 font-semibold group-hover:text-primary transition-colors duration-500">Oheo</span>
                         </p>
                     </a>
                 </div>
